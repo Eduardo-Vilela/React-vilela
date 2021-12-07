@@ -5,13 +5,13 @@ const NavBar = () => {
   return (
         <header className="NavBar">
             <div>
-            <Navbar bg="primary" variant="dark">
+            <Navbar bg="success" variant="dark">
                 <Container>
-                <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                <Navbar.Brand href="#home">Icono/marca</Navbar.Brand>
                 <Nav className="me-auto">
-                  <Nav.Link href="#home">Home</Nav.Link>
-                  <Nav.Link href="#features">Features</Nav.Link>
-                  <Nav.Link href="#pricing">Pricing</Nav.Link>
+                  <Nav.Link href="#home">Inicio</Nav.Link>
+                  <Nav.Link href="#features">Productos</Nav.Link>
+                  <Nav.Link href="#pricing">Ayuda</Nav.Link>
                 </Nav>
                 <CardWidget/>
                 </Container>
