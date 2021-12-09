@@ -1,15 +1,29 @@
-import ItemCount from "../ItemCount/ItemCount"
+import {useEffect, useState} from 'react'
+import {getFetch} from "../../helpers/getFetch.js"
+import ItemList from "../ItemList/ItemList.jsx"
+
 
 function ItemListContainer(  {greeting} )  {
 
-    const inicial = 1
-    const maximo = 10
-
+  const [productos, setProductos] = useState([])
+  const [loading , setLoading] = useState(true)
+     
+  useEffect(() => {
+    getFetch
+  .then(resp => setProductos(resp))
+  .catch(err => console.log(err))
+  .finally(()=>setLoading(false))
+  },[])
+  
     return ( 
         <>
           { greeting }
-          Gorras NY
-          <ItemCount inicial={inicial} maximo={maximo}/>
+          { loading ? 
+          <h2>cargando datos...</h2> 
+          :
+          <ItemList productos= {productos}/>
+          }
+          
         </>
     )
 }
