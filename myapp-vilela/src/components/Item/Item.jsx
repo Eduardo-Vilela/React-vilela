@@ -1,11 +1,14 @@
 import React from 'react'
-import { Card, ListGroup , ListGroupItem,Button  } from "react-bootstrap"
+import { Card, ListGroup , ListGroupItem} from "react-bootstrap"
+import ItemCount from '../ItemCount/ItemCount.jsx'
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer.jsx'
+
 
 
 function Item({productos}) {
     return (
-        <div>
-            <div key={productos.id} clasName='col-md-4'>
+        <div className="card">
+            <div key={productos.id}>
               <Card style={{ width: '18rem' }}>
                  <Card.Img variant="top" src={productos.foto} />
                  <Card.Body>
@@ -22,17 +25,11 @@ function Item({productos}) {
                      {productos.precio}
                      </ListGroupItem>                                          
                  </ListGroup>
+                 <ItemCount/>
                  <Card.Body>
-                 <Button variant="success">Comprar</Button>{' '}
-                 <Button variant="danger">Eliminar</Button>
+                   <ItemDetailContainer/>
                  </Card.Body>
                </Card>
-       
-       
-       
-       
-       
-       
        </div>
         </div>
     )
