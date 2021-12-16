@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
+import { Link } from 'react-router-dom';
 
 function ItemDetail({producto}) {
     const [show, setShow] = useState(false);
@@ -12,9 +13,12 @@ function ItemDetail({producto}) {
       <>
       {producto.map((Producto1)=>
               <div key={Producto1.id}>
-              <Button variant="primary" onClick={handleShow}>
+                <Link to={`/detalle/${producto.id}`}> 
+                <Button variant="primary" onClick={handleShow}>
                 Detalles
               </Button>
+                </Link>
+              
         
               <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
