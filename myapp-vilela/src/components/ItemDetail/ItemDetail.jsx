@@ -1,31 +1,16 @@
-import React,{useState} from 'react'
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import Image from 'react-bootstrap/Image';
-import { Link } from 'react-router-dom';
+import {Card} from 'react-bootstrap'
+import ItemCount from '../ItemCount/ItemCount';
 
 function ItemDetail({producto}) {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-  
+   
     return (
       <>
-      {producto.map((Producto1)=>
-              <div key={Producto1.id}>
-                <Link to={`/detalle/${producto.id}`}> 
-                <Button variant="primary" onClick={handleShow}>
-                Detalles
-              </Button>
-                </Link>
-              
-        
-              <Modal show={show} onHide={handleClose}>
+{/*               <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                  <Modal.Title>{Producto1.title}</Modal.Title>
+                  <Modal.Title>{producto.title}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>{Producto1.descripcion}</Modal.Body>
-                <Image variant="top" src={Producto1.foto} style={{width:300}} />
+                <Modal.Body>{producto.descripcion}</Modal.Body>
+                <Image variant="top" src={producto.foto} style={{width:300}} />
                 <Modal.Footer>
                   <Button variant="secondary" onClick={handleClose}>
                     Close
@@ -34,11 +19,17 @@ function ItemDetail({producto}) {
                     Save Changes
                   </Button>
                 </Modal.Footer>
-              </Modal>
-              </div>
-     
-      )}
-        
+             </Modal>  */}
+             <Card style={{ width: '18rem' }}>
+                <Card.Img/>
+                <Card.Body>
+                  <Card.Title>{producto.title}</Card.Title>
+                  <Card.Text>
+                    {producto.descripcion}
+                  </Card.Text> 
+                  <ItemCount/>
+                </Card.Body>
+            </Card>
       </>
     );
   }

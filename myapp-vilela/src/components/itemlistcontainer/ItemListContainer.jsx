@@ -9,10 +9,11 @@ function ItemListContainer(  {greeting} )  {
   const [loading , setLoading] = useState(true)
      
   const { idCate }  = useParams()
+
   useEffect(() => {
     if (idCate) {
       getFetch
-      .then(resp => setProductos(resp.filter(prod => prod.categoria === idCate)))
+      .then(resp => setProductos(resp.filter(prod => prod.categorias === idCate)))
       .catch(err => console.log(err))
       .finally(()=>setLoading(false))
     } else{
@@ -21,8 +22,9 @@ function ItemListContainer(  {greeting} )  {
       .catch(err => console.log(err))
       .finally(()=>setLoading(false))
     }
-  },[])
-   console.log(idCate)
+  },[idCate])
+
+   console.log(productos)
     return ( 
         <>
           { greeting }

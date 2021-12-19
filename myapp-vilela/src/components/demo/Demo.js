@@ -4,7 +4,7 @@ const Demo = () => {
     return (
         <div>
             <h4>
-                demooo de pruebaaaa para rutassss
+                demoo de CART
             </h4>
         </div>
     )

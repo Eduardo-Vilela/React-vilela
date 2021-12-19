@@ -17,7 +17,7 @@ const ItemCount = (props) => {
 
     return (
         <div>
-            <h1 style={{}}>{value}</h1>
+            <h1>{value}</h1>
             <Button variant="success" onClick={handleSuma}>+</Button>{' '}
             <Button variant="danger" onClick={handleResta}>-</Button>{' '}
             <Button variant="outline-info">AGREGAR AL CARRITO</Button>{' '}

@@ -1,8 +1,6 @@
 import React from 'react'
 import { Card, ListGroup , ListGroupItem} from "react-bootstrap"
-import ItemCount from '../ItemCount/ItemCount.jsx'
-import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer.jsx'
-
+import {Link} from 'react-router-dom'
 
 
 function Item({productos}) {
@@ -25,9 +23,9 @@ function Item({productos}) {
                      {productos.precio}
                      </ListGroupItem>                                          
                  </ListGroup>
-                 <ItemCount/>
+               <Link to={`/detalle/${productos.id}`}>Ver Detalle</Link>  
                  <Card.Body>
-                   <ItemDetailContainer/>
+
                  </Card.Body>
                </Card>
        </div>
