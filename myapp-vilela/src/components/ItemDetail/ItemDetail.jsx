@@ -1,8 +1,14 @@
 import {Card} from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCount';
+import React,{useState} from 'react'
 
 function ItemDetail({producto}) {
-   
+     const [goCart, setGoCart] = useState(false);
+
+     const onAdd = (cantidad) => {
+       console.log(cantidad);
+       setGoCart(true);
+     }
     return (
       <>
 {/*               <Modal show={show} onHide={handleClose}>
@@ -27,7 +33,10 @@ function ItemDetail({producto}) {
                   <Card.Text>
                     {producto.descripcion}
                   </Card.Text> 
-                  <ItemCount/>
+                  {!goCart ? <ItemCount props={producto.stock} onAdd={onAdd}/> 
+                  : 
+                  <button>Ir al carrito!</button>}
+                  
                 </Card.Body>
             </Card>
       </>

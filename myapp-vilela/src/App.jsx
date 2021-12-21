@@ -5,6 +5,7 @@ import ItemListContainer from '../src/components/Itemlistcontainer/ItemListConta
 import NavBar from './components/NavBar/NavBar';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx';
 import Demo from './components/demo/Demo.js';
+import Item from './components/Item/Item.jsx';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
             <Route
             exact 
             path="/" 
-            element={<ItemListContainer greeting=''/>}/>
+            element={<Item greeting=''/>}/>
             <Route
             exact  
             path="/categoria/:idCate" 

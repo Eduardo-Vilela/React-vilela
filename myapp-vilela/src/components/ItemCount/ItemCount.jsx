@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 
-const ItemCount = (props) => {
+const ItemCount = ({props, onAdd}) => {
 
     const { maximo, inicial} = props
      
@@ -17,10 +17,10 @@ const ItemCount = (props) => {
 
     return (
         <div>
-            <h1>{value}</h1>
+            <h1>{1}</h1>
             <Button variant="success" onClick={handleSuma}>+</Button>{' '}
             <Button variant="danger" onClick={handleResta}>-</Button>{' '}
-            <Button variant="outline-info">AGREGAR AL CARRITO</Button>{' '}
+            <Button disabled={value === 0} onClick={() => onAdd(value)}variant="outline-info">AGREGAR AL CARRITO</Button>{' '}
         </div>
     )
 }
