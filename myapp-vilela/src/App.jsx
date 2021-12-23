@@ -1,16 +1,16 @@
-
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from '../src/components/Itemlistcontainer/ItemListContainer.jsx';
 import NavBar from './components/NavBar/NavBar';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx';
 import Demo from './components/demo/Demo.js';
-import Item from './components/Item/Item.jsx';
+import CartContextProvider from './Context/CartContext.jsx';
 
 
 function App() {
 
   return (
+    <CartContextProvider>
     <BrowserRouter>
       <div >
           <NavBar/>
@@ -18,7 +18,7 @@ function App() {
             <Route
             exact 
             path="/" 
-            element={<Item greeting=''/>}/>
+            element={<ItemListContainer greeting=''/>}/>
             <Route
             exact  
             path="/categoria/:idCate" 
@@ -34,6 +34,7 @@ function App() {
           </Routes>
     </div>
     </BrowserRouter>
+    </CartContextProvider>
   );
 }
 

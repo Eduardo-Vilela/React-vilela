@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from '../../Context/CartContext.jsx'
 
 const Demo = () => {
+    const{ cartList} = useContext(CartContext)
     return (
         <div>
             <h4>
-                demoo de CART
+               { cartList.map(producto=><ul>{producto.name}</ul>)}
             </h4>
         </div>
     )
