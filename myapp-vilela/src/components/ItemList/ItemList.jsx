@@ -1,7 +1,8 @@
 import React from 'react'
 import Item from '../Item/Item'
 import '../ItemList/ItemList.css' 
-function ItemList({productos}) {
+import { memo } from 'react'
+const ItemList = memo( ({productos})=> {
     return (
         <div className="cardAjuste">
             {
@@ -10,5 +11,5 @@ function ItemList({productos}) {
         </div>
     )
 }
-
+,(oldProps, newProps)=> oldProps.productos.length === newProps.productos.length )
 export default ItemList
