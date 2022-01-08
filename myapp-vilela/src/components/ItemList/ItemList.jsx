@@ -10,16 +10,6 @@ const ItemList = memo( ({productos})=> {
     const [producto, setProducto] = useState([])
     const [loading , setLoading] = useState(true)
 
-       useEffect(() => {
-    const db = getFirestore()
-    const queryDb = doc(db, 'productos','pbApXmPM9Viss69OdRyJ')
-    getDoc(queryDb)
-     .then(resp => setProducto({ id:  resp.id, ...resp.data() }))
-     .catch(err => console.log(err))
-     .finally(() => setLoading(false))
-   },[])
-
-   console.log(producto)
     return (
         <div className="cardAjuste">
             {

@@ -8,7 +8,8 @@ function ItemListContainer(  {greeting} )  {
 
   const [productos, setProductos] = useState([])
   const [loading , setLoading] = useState(true)
-     
+    
+  const {idCate} = useParams()
   // useEffect(() => {
     // if (idCate) {
       // getFetch
@@ -22,25 +23,26 @@ function ItemListContainer(  {greeting} )  {
       // .finally(()=>setLoading(false))
     // }
   // },[idCate])
-  //  useEffect(() => {
-  //   const db = getFirestore()
-  //   const queryDb = doc(db, 'productos','pbApXmPM9Viss69OdRyJ')
-  //   getDoc(queryDb)
-  //    .then(resp => setProducto({ id:  resp.id, ...resp.data() }))
-  //  },[idCate])
 
-  //  console.log(producto)
+  const db = getFirestore() 
 
    useEffect(() => {
-    
-    const db = getFirestore() 
+    if (idCate) {
+      const queryCollection = query(collection(db, 'Productos'),where('categoria','==',idCate))
+      getDocs(queryCollection)
+      .then(resp => setProductos( resp.docs.map(prod => ({id: prod.id, ...prod.data() }))))
+      .catch(err => console.log(err))
+      .finally(() => setLoading(false))
+    } else {
+      const queryCollection = query(collection(db, 'Productos'))
+      getDocs(queryCollection)
+      .then(resp => setProductos( resp.docs.map(prod => ({id: prod.id, ...prod.data() }))))
+      .catch(err => console.log(err))
+      .finally(() => setLoading(false))
+    }
+   
 
-    const queryCollection = query(collection(db, 'productos'))
-    getDocs(queryCollection)
-    .then(resp => setProductos( resp.docs.map(prod => ({id: prod.id, ...prod.data() }))))
-    .catch(err => console.log(err))
-    .finally(() => setLoading(false))
- }, []);
+ }, [idCate]);
 
  console.log(productos)
     return ( 

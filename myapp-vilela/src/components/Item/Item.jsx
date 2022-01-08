@@ -12,7 +12,7 @@ function Item({productos}) {
                  <Card.Body>
                    
                    <Card.Title>
-                     {`${productos.title} - ${productos.id}`}
+                     {`${productos.title}`}
                    </Card.Title>
                    <Card.Text>
                     {productos.stock}
