@@ -8,14 +8,14 @@ function Item({productos}) {
         <div className="card">
             <div key={productos.id}>
               <Card style={{ width: '18rem' }}>
-                 <Card.Img variant="top" src={productos.foto} />
+                 <Card.Img variant="top" src={productos.imagenID} />
                  <Card.Body>
                    
                    <Card.Title>
                      {`${productos.title}`}
                    </Card.Title>
                    <Card.Text>
-                    {productos.stock}
+                    {/* <h4>Stock disponible :</h4>{productos.stock} */}
                    </Card.Text>
                  </Card.Body>
                  <ListGroup className="list-group-flush">
