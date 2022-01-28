@@ -3,6 +3,7 @@ import {getFetch} from "../../helpers/getFetch.js"
 import ItemList from "../ItemList/ItemList.jsx"
 import {useParams} from 'react-router-dom'
 import {doc , getDocs, getFirestore, query ,collection , where,docs} from 'firebase/firestore' 
+import '../../components/Itemlistcontainer/itemlistcontainer.css'
 
 function ItemListContainer(  {greeting} )  {
 
@@ -49,7 +50,7 @@ function ItemListContainer(  {greeting} )  {
         <>
           { greeting }
           { loading ? 
-          <h2>cargando datos...</h2> 
+          <h2 className='ajusteCargandoDatos'>Cargando Datos...</h2> 
           :
           <ItemList productos= {productos}/>
           }

@@ -7,8 +7,14 @@
 }
 .buttonDetalle {
     text-decoration: none !important;
+    color: white;
 }
 .imgCard {
-    width: 140px;
+    width: 120px;
     height: auto; 
+    margin: 10px;
+    margin-left: 20px
+}
+.titulosProductos{
+    font-family: fantasy;
 }

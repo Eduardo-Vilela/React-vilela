@@ -1,6 +1,20 @@
 .ajustesCarrito {
     display: flex;
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    justify-content: center;
     text-decoration: none !important ;
+    margin: 20px;
+}
+.ajustesBotonesCarrito{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.ajusteLinks {
+    text-decoration: none;
+    color: white;
+}
+.fontCarrito {
+    font-family: fantasy;
+    text-align: center;
 }

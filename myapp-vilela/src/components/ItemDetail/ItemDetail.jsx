@@ -3,6 +3,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import React,{useState,useContext} from 'react'
 import { Link } from 'react-router-dom';
 import {CartContext} from '../../Context/CartContext.jsx';
+import '../../components/ItemDetail/itemDetail.css'
 
 function ItemDetail({producto}) {
      const [goCart, setGoCart] = useState(false);
@@ -17,34 +18,21 @@ function ItemDetail({producto}) {
      console.log(cartList)
     return (
       <>
-{/*               <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                  <Modal.Title>{producto.title}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>{producto.descripcion}</Modal.Body>
-                <Image variant="top" src={producto.foto} style={{width:300}} />
-                <Modal.Footer>
-                  <Button variant="secondary" onClick={handleClose}>
-                    Close
-                  </Button>
-                  <Button variant="primary" onClick={handleClose}>
-                    Save Changes
-                  </Button>
-                </Modal.Footer>
-             </Modal>  */}
-             <Card style={{ width: '18rem' }}>
-                <Card.Img/>
-                <Card.Body>
-                  <Card.Title>{producto.title}</Card.Title>
-                  <Card.Text>
-                    {producto.descripcion}
-                  </Card.Text> 
-                  {!goCart ? <ItemCount props={producto.stock} onAdd={onAdd}/> 
-                  : 
-                  <Button variant = 'success'><Link to="/cart">Ir al carrito!</Link></Button>}
+      <div className='cardVerDetalles'>
+             <Card style={{ width: '18rem' }} className='imgCard'>
+               <Card.Body className='fontVerDetalle'>
+                  <Card.Img  variant="top" src={producto.imagenID} />             
+                    <Card.Title>{producto.title}</Card.Title>
+                    <Card.Text>
+                      {producto.descripcion}
+                    </Card.Text> 
+                    {!goCart ? <ItemCount props={producto.stock} onAdd={onAdd}/> 
+                    : 
+                    <Button  variant = 'dark'><Link className='linkDetail' to="/cart">Ir al carrito!</Link></Button>}
                   
                 </Card.Body>
             </Card>
+      </div>
       </>
     );
   }

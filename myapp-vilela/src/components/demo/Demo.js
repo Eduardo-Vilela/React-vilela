@@ -52,32 +52,40 @@ function Cart(){
     }   
 
     return (
-        <div className ="ajustesCarrito">
+        <>
+          <div className ="ajustesCarrito">
                { cartList.map(producto=>(
-
+                
                    <Card>
-                   <Card.Body>
-                     <Card.Title>-PRODUCTO: {producto.title}</Card.Title>
-                     <Card.Text>
-                     {producto.descripcion} CANTIDAD: {producto.cantidad}
+                   <Card.Img className='imgCard' variant="top" src={producto.imagenID} />
+                   <Card.Body className='fontCarrito'>
+                     <Card.Title className='fontCarrito'>PRODUCTO: {producto.title}</Card.Title>
+                     <Card.Text className='fontCarrito'>
+                     CANTIDAD: {producto.cantidad}
                      </Card.Text>
-                     <Card.Text>
+                     <Card.Text className='fontCarrito'>
                      $ {producto.price}
                      </Card.Text>
-                     <Button variant="danger" onClick = {()=>borrarItem(producto.id)}><BsFillTrashFill/></Button>
+                     <Button  variant="danger" onClick = {()=>borrarItem(producto.id)}><BsFillTrashFill/></Button>
                    </Card.Body>
                  </Card>
 
                ))}
-
+          </div>
+          <div className='ajustesBotonesCarrito'>
                {cartList.length > 0 ? <div> {"Precio Total : $" + precioTotal()}
-               <Button variant="danger" onClick = {()=>borrarCarrito()}>Vaciar Carrito</Button></div>
+               
+               <Button variant="dark" onClick = {()=>borrarCarrito()}>Vaciar Carrito</Button>
+               <Button variant = "dark"><Link className='ajusteLinks' to = "/">Finalizar Compra</Link></Button>
+               </div>
                :
                <div>
                    <h1>Carrito Vacio</h1>
-                   <Button variant = "success"><Link className='ajustesCarrito' to = "/">Seguir Comprando</Link></Button>
+                   <Button variant = "dark"><Link className='ajustesCarrito' to = "/">Seguir Comprando</Link></Button>
                </div>
                }
+          </div>
+          <div>
                <br/>
                <form 
                   onSubmit={generarOrden}
@@ -103,7 +111,8 @@ function Cart(){
                  /><br/>
                </form>  
                <Button onClick = {generarOrden}> Generar Orden</Button>              
-        </div>
+          </div>    
+        </>
     )
 }
 

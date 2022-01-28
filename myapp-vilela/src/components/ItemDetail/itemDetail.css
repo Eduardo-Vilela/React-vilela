@@ -1,0 +1,12 @@
+.linkDetail{
+    text-decoration: none !important;
+    color: white;
+}
+.imgCard {
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+.fontVerDetalle{
+    text-align: center;
+}

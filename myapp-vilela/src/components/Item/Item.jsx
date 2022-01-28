@@ -12,11 +12,11 @@ function Item({productos}) {
                  <Card.Img className='imgCard' variant="top" src={productos.imagenID} />
                  <Card.Body>
                    
-                   <Card.Title>
+                   <Card.Title className='titulosProductos'>
                      {`${productos.title}`}
                    </Card.Title>
                    <Card.Text>
-                    {/* <h4>Stock disponible :</h4>{productos.stock} */}
+                   {/* <h5>Stock:</h5>{`${productos.stock}`} */}
                    </Card.Text>
                  </Card.Body>
                  <ListGroup className="list-group-flush">
@@ -24,7 +24,7 @@ function Item({productos}) {
                      {productos.precio}
                      </ListGroupItem>                                          
                  </ListGroup>
-               <Button variant="outline-info"><Link className='buttonDetalle' to={`/detalle/${productos.id}`}>Ver Detalle</Link></Button> 
+               <Button variant="dark"><Link className='buttonDetalle' to={`/detalle/${productos.id}`}>Ver Detalle</Link></Button> 
                  <Card.Body>
 
                  </Card.Body>
