@@ -1,4 +1,4 @@
-import {Card} from 'react-bootstrap'
+import {Card,Button} from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCount';
 import React,{useState,useContext} from 'react'
 import { Link } from 'react-router-dom';
@@ -41,7 +41,7 @@ function ItemDetail({producto}) {
                   </Card.Text> 
                   {!goCart ? <ItemCount props={producto.stock} onAdd={onAdd}/> 
                   : 
-                  <button><Link to="/cart">Ir al carrito!</Link></button>}
+                  <Button variant = 'success'><Link to="/cart">Ir al carrito!</Link></Button>}
                   
                 </Card.Body>
             </Card>

@@ -4,18 +4,30 @@ import { Card, Button} from "react-bootstrap"
 import { BsFillTrashFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { addDoc, collection , getFirestore ,Timestamp } from 'firebase/firestore';
+import DatosOrden from '../DatosOrden/DatosOrden';
+import '../../components/demo/Demo.css' 
 
 function Cart(){
     const{ cartList,borrarItem,borrarCarrito,precioTotal } = useContext(CartContext)
     const [idOrden, setIdOrden] = useState("")
+    const [dataForm, setDataForm] = useState({
+      name:"" , email:"",phone:""
+    })
+
+    const handleChange = (e) => {
+      setDataForm({
+        ...dataForm,
+        [e.target.name]:e.target.value
+      })
+    }
     
-  
+  console.log(dataForm)
     const generarOrden = (e) => {
       e.preventDefault()
 
       let orden = {}
       orden.date = Timestamp.fromDate(new Date())
-      orden.buyer ={ nombre: 'fede', tel:'1123644',email: 'edumix22@gmail.com'}
+      orden.buyer =dataForm
       orden.total = precioTotal();
       orden.items = cartList.map(cartProducto => { 
         const id = cartProducto.id;
@@ -40,7 +52,7 @@ function Cart(){
     }   
 
     return (
-        <div>
+        <div className ="ajustesCarrito">
                { cartList.map(producto=>(
 
                    <Card>
@@ -58,15 +70,39 @@ function Cart(){
 
                ))}
 
-               {cartList.length > 0 ? <div> {"precioTotal:$" + precioTotal()}
+               {cartList.length > 0 ? <div> {"Precio Total : $" + precioTotal()}
                <Button variant="danger" onClick = {()=>borrarCarrito()}>Vaciar Carrito</Button></div>
                :
                <div>
                    <h1>Carrito Vacio</h1>
-                   <Link to = "/">Seguir Comprando</Link>
+                   <Button variant = "success"><Link className='ajustesCarrito' to = "/">Seguir Comprando</Link></Button>
                </div>
                }
-                 <Button onClick = {generarOrden}> Generar Orden</Button>
+               <br/>
+               <form 
+                  onSubmit={generarOrden}
+                  onChange={handleChange}
+               >
+                 <input 
+                 type='text'
+                 name='name'
+                 placeholder='name'
+                 value={dataForm.name}
+                 /><br/>
+                 <input 
+                 type='text'
+                 name='phone'
+                 placeholder='phone'
+                 value={dataForm.phone}
+                 /><br/>
+                 <input 
+                 type='text'
+                 name='email'
+                 placeholder='email'
+                 value={dataForm.phone}
+                 /><br/>
+               </form>  
+               <Button onClick = {generarOrden}> Generar Orden</Button>              
         </div>
     )
 }

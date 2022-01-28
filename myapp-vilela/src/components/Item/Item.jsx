@@ -1,14 +1,15 @@
 import React from 'react'
-import { Card, ListGroup , ListGroupItem} from "react-bootstrap"
+import { Card, ListGroup , ListGroupItem, Button} from "react-bootstrap"
 import {Link} from 'react-router-dom'
+import '../../components/Item/item.css'
 
 
 function Item({productos}) {
     return (
         <div className="card">
             <div key={productos.id}>
-              <Card style={{ width: '18rem' }}>
-                 <Card.Img variant="top" src={productos.imagenID} />
+              <Card>
+                 <Card.Img className='imgCard' variant="top" src={productos.imagenID} />
                  <Card.Body>
                    
                    <Card.Title>
@@ -23,7 +24,7 @@ function Item({productos}) {
                      {productos.precio}
                      </ListGroupItem>                                          
                  </ListGroup>
-               <Link to={`/detalle/${productos.id}`}>Ver Detalle</Link>  
+               <Button variant="outline-info"><Link className='buttonDetalle' to={`/detalle/${productos.id}`}>Ver Detalle</Link></Button> 
                  <Card.Body>
 
                  </Card.Body>

@@ -11,7 +11,7 @@ const ItemList = memo( ({productos})=> {
     const [loading , setLoading] = useState(true)
 
     return (
-        <div className="cardAjuste">
+        <div className='ajustesCard'>
             {
               productos.map((productos) => <Item productos={productos}/>
                        )}

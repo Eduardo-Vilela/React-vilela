@@ -1,5 +1,14 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+ width: 170px;
+ height: 360px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+}
+.buttonDetalle {
+    text-decoration: none !important;
+}
+.imgCard {
+    width: 140px;
+    height: auto; 
 }
