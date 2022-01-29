@@ -4,7 +4,7 @@ import { Card, Button} from "react-bootstrap"
 import { BsFillTrashFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { addDoc, collection , getFirestore ,Timestamp } from 'firebase/firestore';
-import DatosOrden from '../DatosOrden/DatosOrden';
+
 import '../../components/demo/Demo.css' 
 
 function Cart(){
@@ -76,7 +76,7 @@ function Cart(){
                {cartList.length > 0 ? <div> {"Precio Total : $" + precioTotal()}
                
                <Button variant="dark" onClick = {()=>borrarCarrito()}>Vaciar Carrito</Button>
-               <Button variant = "dark"><Link className='ajusteLinks' to = "/">Finalizar Compra</Link></Button>
+               <Button variant = "dark"><Link className='ajusteLinks' to = "to={`/detalle/${productos.id}`}">Finalizar Compra</Link></Button>
                </div>
                :
                <div>
