@@ -7,7 +7,7 @@ import {createContext,useState} from 'react'
 
      function agregarAlCarrito(item) {
     const index = cartList.findIndex(i => i.id === item.id)//pos    -1
-    console.log(index)
+    
     if (index > -1) {
       const oldQy = cartList[index].cantidad
 

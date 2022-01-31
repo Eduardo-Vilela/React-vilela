@@ -14,7 +14,8 @@ const CardWidget = () => {
               {cartList.length > 0 
               ? 
               
-                <Spinner animation="grow" variant="warning"><p style={{color:"white",textAlign:"center"}}>{cartList.reduce((acum, prod) => acum + prod.cantidad , 0) }</p></Spinner>
+                <Spinner animation="grow" variant="warning"><p style={{color:"white",textAlign:"center"}}>{cartList.reduce((acum, prod) => acum + prod.cantidad , 0) }</p>
+                </Spinner>
                 
                    
               : 

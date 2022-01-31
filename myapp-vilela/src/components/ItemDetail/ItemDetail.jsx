@@ -11,11 +11,11 @@ function ItemDetail({producto}) {
      const {agregarAlCarrito,cartList} = useContext(CartContext)
 
      const onAdd = (cantidad) => {
-       console.log(cantidad);
+       
        setGoCart(true);
        agregarAlCarrito({...producto,cantidad:cantidad})
      }
-     console.log(cartList)
+    
     return (
       <>
       <div className='cardVerDetalles'>
