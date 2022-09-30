@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import ItemList from "../ItemList/ItemList.jsx"
 import {useParams} from 'react-router-dom'
 import {getDocs, getFirestore, query ,collection , where} from 'firebase/firestore' 
-import '../../components/Itemlistcontainer/itemlistcontainer.css'
+import './itemlistcontainer.css'
 
 function ItemListContainer(  {greeting} )  {
 

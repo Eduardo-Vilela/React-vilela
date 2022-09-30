@@ -4,7 +4,7 @@ import { Card, Button} from "react-bootstrap"
 import { BsFillTrashFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
-import '../../components/demo/Demo.css' 
+import './Demo.css' 
 
 function Cart(){
     const{ cartList,borrarItem,borrarCarrito,precioTotal } = useContext(CartContext)

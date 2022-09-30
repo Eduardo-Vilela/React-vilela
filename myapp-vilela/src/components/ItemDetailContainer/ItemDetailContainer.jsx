@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
   return(
       <div>
           { loading ? 
-          <h2>cargando datos...</h2> 
+          <h2 style={{textAlign:'center'}}>cargando datos...</h2> 
           :
          <ItemDetail  producto={item}/>
           }

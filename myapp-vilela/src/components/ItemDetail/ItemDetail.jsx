@@ -8,7 +8,7 @@ import '../../components/ItemDetail/itemDetail.css'
 function ItemDetail({producto}) {
      const [goCart, setGoCart] = useState(false);
 
-     const {agregarAlCarrito,cartList} = useContext(CartContext)
+     const {agregarAlCarrito} = useContext(CartContext)
 
      const onAdd = (cantidad) => {
        
